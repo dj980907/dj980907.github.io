@@ -80,13 +80,52 @@
                     <p>hello world</p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link">SKILLS</p>
-                        <p class="tab-links">EXPERIENCE</p>
-                        <p class="tab-links">EDUCAION</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">SKILLS</p>
+                        <p class="tab-links" onclick="opentab('experience')">EXPERIENCE</p>
+                        <p class="tab-links" onclick="opentab('education')">EDUCAION</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Degining Web/App Interfaces</li>
+                            <li><span>Web Development</span><br>Web app Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2021 - Current</span><br>UI/UX Design Training at ET Institute</li>
+                            <li><span>2019 - 2021</span><br>Team lead at StarApp LLC.</li>
+                            <li><span>2017 - 2019</span><br>UI/UX Design Executive at Coin Digital Ltd.</li>
+                            <li><span>2016 - 2017</span><br>Internship at Ekart eCommerce.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023</span><br>Bachelor's Degree fromNew York University</li>
+                            <li><span>2018</span><br>Associate's Degree from Rutgers University</li>
+                            <li><span>2016</span><br>Northstar Christian Academy</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        var tabLinks = document.getElementsByClassName('tab-links');
+        var tabContents = document.getElementsByClassName('tab-contents');
+
+        function opentab(tabName){
+            for(tablink of tabLinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabContents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabName).classList.add('active-tab');
+        }
+    </script>
 </body>
 </html>
